@@ -3,35 +3,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="file.css" />
+	<title>Insert title here</title>
 </h:head>
 <h:body>
-	
-	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputText value="Nome"/>
-			<h:inputText value="#{bean.pessoa.nome}"/>
-			<h:outputText value="E-mail"/>
-			<h:inputText value="#{bean.pessoa.email}"/>
-			<h:outputText />
-			<h:commandButton value="Adicionar" action="#{bean.adicionar}"/>
-			<h:outputText />
-		</h:panelGrid>
+
+	<p:graphicImage library="imagens"
+		name="sutherland-global-services-vector-logo.png" width="200px" />
+
+
+	<h:form id="form">
+
+		<h1>Informações de cadastro</h1>
+
+		<p:panel header="Cadastro de clientes">
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Nome" />
+				<p:inputText value="#{bean.pessoa.nome}" size="50" />
+				<p:outputLabel value="E-mail" />
+				<p:inputText value="#{bean.pessoa.email}" size="50" />
+				<p:outputLabel />
+				<p:commandButton value="Adicionar" action="#{bean.adicionar}"
+					update="form tabela" />
+				<p:outputLabel />
+			</h:panelGrid>
+		</p:panel>
+			
 	</h:form>
-	
+
 	<h1>Lista de pessoas</h1>
-	
-	<h:dataTable value="#{bean.pessoas}" var="p" border="1">
-		<h:column>#{p.nome}</h:column>
-		<h:column>#{p.email}</h:column>
-		
-		<h:column>
-			<h:button value="Editar" outcome="/paginas/sucesso.xhtml?parametro=#{p.nome}" />
-		</h:column>
-	</h:dataTable>
+
+	<p:dataTable value="#{bean.pessoas}" var="p" border="1" id="tabela">
+		<p:column headerText="Nome">#{p.nome}</p:column>
+		<p:column headerText="E-mail">#{p.email}</p:column>
+		<p:column headerText="Editar" width="80" >
+			<p:button value="Editar"
+				outcome="/paginas/sucesso.xhtml?parametro=#{p.nome}" />
+		</p:column>
+	</p:dataTable>
 
 </h:body>
 </html>
