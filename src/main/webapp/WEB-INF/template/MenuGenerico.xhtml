@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="file.css" />
+	<title>Treinamento JSF e Primefaces</title>
+</h:head>
+<h:body>
+	<header>
+		<p:graphicImage library="imagens"
+			name="sutherland-global-services-vector-logo.png" width="200px" />
+		<div style="float: right;">
+			<h:graphicImage library="imagens" name="logo.png" width="80" />
+		</div>
+	
+	<!--  
+	
+	<p:confirmDialog global="true">
+		<p:confirmButton value="Sim" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:confirmButton value="Não" styleClass="ui-confirmdialog-no"  icon="ui-icon-close" />
+	</p:confirmDialog>
+	-->
+	</header>
+	<ui:insert name="corpo"/>
+	<footer><h2>  =======================Rodapé da página================  </h2></footer>
+</h:body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+
+	<header>
+		<p:graphicImage library="imagens"
+			name="sutherland-global-services-vector-logo.png" width="200px" />
+		<div style="float: right;">
+			<h:graphicImage library="imagens" name="logo.png" width="80" />
+		</div>
+	</header>
+
+	<p:toolbar>
+		<f:facet name="left">
+			<p:button value="Novo" icon="ui-icon-document" />
+			<p:button value="Abrir" icon="ui-icon-folder-open" />
+
+			<span class="ui-separator"> <span
+				class="ui-icon ui-icon-grip-dotted-vertical" />
+			</span>
+
+			<p:button icon="ui-icon-disk" />
+			<p:button icon="ui-icon-trash" />
+			<p:button icon="ui-icon-print" />
+		</f:facet>
+
+		<f:facet name="right">
+			<h:form>
+				<p:menuButton value="Opções">
+					<p:menuitem value="Salvar" icon="ui-icon-disk" />
+					<p:menuitem value="Alterar" icon="ui-icon-arrowrefresh-1-w" />
+					<p:menuitem value="Deletar" icon="ui-icon-trash" />
+				</p:menuButton>
+			</h:form>
+		</f:facet>
+
+	</p:toolbar>
+
+</h:body>
+</html>

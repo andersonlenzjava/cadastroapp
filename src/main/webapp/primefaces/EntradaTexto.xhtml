@@ -7,25 +7,31 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>Treinamento JSF e Primefaces</title>
 </h:head>
 <h:body>
-
-
+	
+	
 	<header>
-		<p:graphicImage library="imagens" 
-		name="sutherland-global-services-vector-logo.png" width="200px" />
+		<div style="float: left; margin-left: 10px" >
+			<h:graphicImage library="imagens" name="titulo.png" />
+		</div>
 		<div style="float: right;" >
 			<h:graphicImage library="imagens" name="logo.png" width="80" />
 		</div>
 	</header>
 	
-	<f:metadata>
-		<f:viewParam name="parametro" value="#{bean.pessoa.nome}" />
-	</f:metadata>
-	
-	<center>
-		<h1>#{bean.pessoa.nome}</h1>
-	</center>
+	<h:form id="form">
+		<p:panelGrid columns="2">
+		
+			<h:outputText value="Evento" />
+			<p:selectOneMenu value="" >
+				
+			</p:selectOneMenu>
+			
+		</p:panelGrid>
+		
+	</h:form>
+
 </h:body>
 </html>

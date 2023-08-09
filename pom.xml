@@ -57,6 +57,29 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Persistência  -->
+		<!-- Traz o hibernate para o projeto  -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.9.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Traz o JPA para o projeto  -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.6.9.Final</version>
+		</dependency>
+
+		<!-- Traz o Postgresql para o projeto  -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.5.1</version>
+		</dependency>
+
 	</dependencies>
 
 
