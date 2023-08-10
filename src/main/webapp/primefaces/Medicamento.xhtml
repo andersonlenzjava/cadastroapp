@@ -4,64 +4,47 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	<!-- 
-	<header>
-		<p:graphicImage library="imagens"
-			name="sutherland-global-services-vector-logo.png" width="200px" />
-		<div style="float: right;">
-			<h:graphicImage library="imagens" name="logo.png" width="80" />
-		</div>
-	</header>
-	 -->
+
 	<ui:define name="corpo">
 
 		<h:form id="frm">
 			<p:messages autoUpdate="true" />
-
-			<p:panelGrid columns="2">
+			
+			<!-- Exibição do formulário -->
+			<center>
+			<h:panelGrid columns="2">
 
 				<p:outputLabel value="Medicamento" />
-				<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}"
-					required="true" label="Medicamento" />
+				<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento" />
 
 				<p:outputLabel value="Apresentação" />
-				<p:inputText size="30"
-					value="#{medicamentoMB.medicamento.apresentacao}" required="true"
-					label="Apresentação" />
+				<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Apresentação" />
 
 				<p:outputLabel value="Laboratório" />
-				<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}"
-					required="true" label="Laboratório">
-					<f:selectItem itemLabel="Selecione o laboratório"
-						noSelectionOption="true" />
+				<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
+					<f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true" />
 					<f:selectItem itemLabel="Bayer" itemValue="BAYER" />
 					<f:selectItem itemLabel="Pratidonaduzzi" itemValue="PRATIDONADUZZI" />
 					<f:selectItem itemLabel="legrand" itemValue="LEGRAND" />
 					<f:selectItem itemLabel="Cimed" itemValue="CIMED" />
 				</p:selectOneMenu>
 
-				<p:outputLabel value="REgistro MS" />
-				<p:inputMask mask="9.9999.9999.999-9" size="13"
-					value="#{medicamentoMB.medicamento.registro}" required="true"
-					label="Registro" />
+				<p:outputLabel value="Registro MS" />
+				<p:inputMask mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamento.registro}" required="true" label="Registro" />
 
 				<p:outputLabel value="Preço" />
-				<p:inputText size="4" value="#{medicamentoMB.medicamento.preco}"
-					required="true" label="Preço">
-					<f:convertNumber minFractionDigits="2" locale="pt_BR"
-						minIntegerDigits="0" />
+				<p:inputText size="4" value="#{medicamentoMB.medicamento.preco}" required="true" label="Preço">
+					<f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0" />
 				</p:inputText>
 
 				<p:outputLabel />
+				<p:commandButton value="Cadastrar" action="#{medicamentoMB.adicionar}" update="frm tabela" style="margin-top: 10px" />
 
-				<p:commandButton value="Cadastrar"
-					action="#{medicamentoMB.adicionar}" update="frm tabela"
-					style="margin-top: 10px" />
-
-			</p:panelGrid>
-
-			<p:dataTable value="#{medicamentoMB.medicamentos}" var="m"
-				id="tabela" paginator="true" rows="5">
+			</h:panelGrid>
+			</center>
+			
+			<!-- Exibição da tabela de dados que vem do banco -->
+			<p:dataTable value="#{medicamentoMB.medicamentos}" var="m" id="tabela" paginator="true" rows="5" style="margin-top: 10px">
 				<p:column headerText="Medicamento">
 					<p:outputLabel value="#{m.nome}" />
 				</p:column>
@@ -79,21 +62,18 @@
 				</p:column>
 
 				<p:column headerText="Preço" width="100">
-					<p:outputLabel value="#{m.preco}"> 
-				  		<f:convertNumber type="currency" currencySymbol="R$"/>
-				  	 </p:outputLabel>
+					<p:outputLabel value="#{m.preco}">
+						<f:convertNumber type="currency" currencySymbol="R$" />
+					</p:outputLabel>
 				</p:column>
 
 				<p:column headerText="" width="100">
-					<p:commandButton icon="ui-icon-pencil" update="@form"
-						process="@this">
-						<f:setPropertyActionListener value="#{m}"
-							target="#{medicamentoMB.medicamento}" />
+					<p:commandButton icon="ui-icon-pencil" update="@form" process="@this">
+						<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 					</p:commandButton>
-					<p:commandButton action="#{medicamentoMB.excluir}"
-						icon="ui-icon-trash" update="tabela" process="@this">
-						<f:setPropertyActionListener value="#{m}"
-							target="#{medicamentoMB.medicamento}" />
+					
+					<p:commandButton action="#{medicamentoMB.excluir}" icon="ui-icon-trash" update="tabela" process="@this">
+						<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 					</p:commandButton>
 				</p:column>
 

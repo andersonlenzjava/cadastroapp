@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,7 +14,7 @@ import br.com.medicamento.utility.Message;
 import br.com.medicamento.utility.NegocioException;
 
 @Named
-@ViewScoped
+@ApplicationScoped
 public class MedicamentoMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,9 +27,11 @@ public class MedicamentoMB implements Serializable {
 
 	private List<Medicamento> medicamentos;
 
+	// acionado assim que a classe é criada 
 	@PostConstruct
 	public void carregar() {
 		medicamentos = service.todosOsMedicamentos();
+
 	}
 
 	public void adicionar() {
@@ -49,7 +51,7 @@ public class MedicamentoMB implements Serializable {
 			service.remover(medicamento);
 			carregar();
 
-			Message.info(medicamento.getNome() + "foi removido");
+			Message.info(medicamento.getNome() + " foi removido");
 
 		} catch (NegocioException e) {
 			Message.erro(e.getMessage());
