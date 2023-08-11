@@ -71,7 +71,17 @@
 					<p:commandButton icon="ui-icon-pencil" update="@form" process="@this">
 						<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 					</p:commandButton>
+
+				<!-- 
+						<p:column headerText="Editar" width="80" >
+							<p:button value="Editar" outcome="/paginas/sucesso.xhtml?parametro=#{p.nome}" />
+						</p:column>
+					<p:commandButton icon="ui-icon-pencil">
+						<p:button value="Editar" outcome="/paginas/sucesso.xhtml?parametro=#{medicamentoMB.medicamento.nome}" />
+					</p:commandButton>
 					
+					
+				 -->
 					<p:commandButton action="#{medicamentoMB.excluir}" icon="ui-icon-trash" update="tabela" process="@this">
 						<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 					</p:commandButton>
