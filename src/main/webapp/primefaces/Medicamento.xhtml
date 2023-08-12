@@ -43,7 +43,6 @@
 	
 							<p:outputLabel />
 								<p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
-						
 						</h:panelGrid>
 					</center>
 					
@@ -83,6 +82,7 @@
 	
 							<p:commandButton action="#{medicamentoMB.excluir}" icon="pi pi-trash" update="tabela" process="@this">
 								<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
+								<!-- Botão de confirmação -->
 								<p:confirm icon="ui-icon-alert" header="Confirmação de exclusão" message="Tem certeza que quer excluir o medicamento?" />
 							</p:commandButton>
 							
