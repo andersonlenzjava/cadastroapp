@@ -24,6 +24,7 @@ public class Medicamento implements Serializable, Base {
 	private String laboratorio;
 	private String registro;
 	private BigDecimal preco;
+	private String url;
 	
 	
 	public String getNome() {
@@ -56,6 +57,12 @@ public class Medicamento implements Serializable, Base {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -80,4 +87,5 @@ public class Medicamento implements Serializable, Base {
 	public Long getId() {
 		return this.id;
 	}
+	
 }

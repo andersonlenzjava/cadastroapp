@@ -7,7 +7,6 @@
 
 	<ui:define name="corpo">
 		
-		<img src="https://m.media-amazon.com/images/I/51ftyQ4Q54L.__AC_SX300_SY300_QL70_ML2_.jpg"/>
 			<div class="card">
 				<h:form id="frm">
 					<p:messages autoUpdate="true" />
@@ -20,8 +19,10 @@
 							<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento" />
 	
 							<p:outputLabel value="Apresentação" />
-							<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true"
-								label="Apresentação" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Apresentação" />
+							
+							<p:outputLabel value="Endereço imagem" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.url}" required="true" label="Medicamento" />
 	
 							<p:outputLabel value="Laboratório" />
 							<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
@@ -41,12 +42,14 @@
 							</p:inputText>
 	
 							<p:outputLabel />
-							<p:commandButton value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px" />
+							<p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px" />
 						
 						</h:panelGrid>
 					</center>
 	
-					<!-- Exibição da tabela de dados que vem do banco -->
+					<!-- Exibição da tabela de dados que vem do banco 
+					<h:graphicImage url="https://m.media-amazon.com/images/I/51ftyQ4Q54L.__AC_SX300_SY300_QL70_ML2_.jpg" width="70" />
+					-->
 					<p:dataTable value="#{medicamentoMB.medicamentos}" var="m" id="tabela" paginator="true" rows="5" style="margin-top: 10px"  >
 						<p:column headerText="Medicamento">
 							<p:outputLabel value="#{m.nome}" />
@@ -55,7 +58,11 @@
 						<p:column headerText="Apresentação" width="200">
 							<p:outputLabel value="#{m.apresentacao}" />
 						</p:column>
-	
+						
+						<p:column headerText="Imagem produto" width="200">
+							<h:graphicImage url="#{m.url}" width="70" />
+						</p:column>
+						
 						<p:column headerText="Laboratório" width="200">
 							<p:outputLabel value="#{m.laboratorio}" />
 						</p:column>
@@ -71,7 +78,7 @@
 						</p:column>
 	
 						<p:column headerText="" width="100">
-							<p:commandButton icon="pi pi-fw pi-pencil" update="@form" process="@this">
+							<p:commandButton icon="pi pi-fw pi-pencil" update="@form" process="@this" styleClass="ui-button-secondary" style="margin-right: 10px">
 								<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 							</p:commandButton>
 	
