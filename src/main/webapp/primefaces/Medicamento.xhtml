@@ -42,14 +42,13 @@
 							</p:inputText>
 	
 							<p:outputLabel />
-							<p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px" />
+								<p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
 						
 						</h:panelGrid>
 					</center>
+					
+					<!-- Exibição do dos dados  -->
 	
-					<!-- Exibição da tabela de dados que vem do banco 
-					<h:graphicImage url="https://m.media-amazon.com/images/I/51ftyQ4Q54L.__AC_SX300_SY300_QL70_ML2_.jpg" width="70" />
-					-->
 					<p:dataTable value="#{medicamentoMB.medicamentos}" var="m" id="tabela" paginator="true" rows="5" style="margin-top: 10px"  >
 						<p:column headerText="Medicamento">
 							<p:outputLabel value="#{m.nome}" />
@@ -84,7 +83,9 @@
 	
 							<p:commandButton action="#{medicamentoMB.excluir}" icon="pi pi-trash" update="tabela" process="@this">
 								<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
+								<p:confirm icon="ui-icon-alert" header="Confirmação de exclusão" message="Tem certeza que quer excluir o medicamento?" />
 							</p:commandButton>
+							
 						</p:column>
 	
 					</p:dataTable>

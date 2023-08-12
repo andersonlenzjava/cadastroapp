@@ -12,23 +12,26 @@
 </h:head>
 <h:body>
 	<header>
-		<p:graphicImage library="imagens" name="sutherland-global-services-vector-logo.png" width="200px" />
-		<div style="float: right;">
-		
-			<h:graphicImage library="imagens" name="logo.png" width="80" />
+		<div style="display: flex; justify-content: space-between; align-items: center;">
+			<p:graphicImage library="imagens"
+				name="sutherland-global-services-vector-logo.png" width="200px" />
+			<p:outputLabel value="Cadastro celulares" style="font-size:20pt; font-weight: bold"/>
+			<div style="float: right;">
+				<h:graphicImage library="imagens" name="logo.png" width="80" />
+			</div>
 		</div>
-
-		<!-- 
-	<p:confirmDialog global="true">
-		<p:confirmButton value="Sim" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-		<p:confirmButton value="Não" styleClass="ui-confirmdialog-no"  icon="ui-icon-close" />
-	</p:confirmDialog>
-	 -->
-
+		<hr size="1" />
 	</header>
 	<ui:insert name="corpo" />
-	<footer style="text-align:center;"> 
-			<p:graphicImage library="imagens" name="flower-logo.jpg" width="200px" />
+		<hr size="1" style="margin-top:20pt" />
+	<footer style="text-align: center;">
+		<p:graphicImage library="imagens" name="flower-logo.jpg" width="200px" />
 	</footer>
+	
+	<!-- Janela de confirmação -->
+  	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+	    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+	    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+    </p:confirmDialog>
 </h:body>
 </html>

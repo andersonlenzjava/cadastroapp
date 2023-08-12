@@ -32,8 +32,8 @@ public class PessoaMB implements Serializable {
 		// limpar os campos que recebem dados após uma operação
 		limpar();
 		
-		// naavegação por método 
-		return "paginas/Sucesso";
+		// naavegação por método (não estava funcionando por causa do erro de digitação 
+		return "paginas/sucesso";
 	}
 	
 	private void limpar() {

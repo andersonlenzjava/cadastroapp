@@ -39,9 +39,10 @@
 	<p:dataTable value="#{bean.pessoas}" var="p" border="1" id="tabela">
 		<p:column headerText="Nome">#{p.nome}</p:column>
 		<p:column headerText="E-mail">#{p.email}</p:column>
+		<p:column headerText="Id">#{p.id}</p:column>
 		<p:column headerText="Editar" width="80" >
 			<p:button value="Editar"
-				outcome="/paginas/sucesso.xhtml?parametro=#{p.nome}" />
+				outcome="/paginas/sucesso.xhtml?parametro=#{p.id}" />
 		</p:column>
 	</p:dataTable>
 
