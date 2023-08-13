@@ -25,9 +25,10 @@
 				<p:inputText value="#{bean.pessoa.nome}" size="50" />
 				<p:outputLabel value="E-mail" />
 				<p:inputText value="#{bean.pessoa.email}" size="50" />
+				<p:outputLabel value="ID" />
+				<p:inputText value="#{bean.pessoa.id}" size="50" />
 				<p:outputLabel />
-				<p:commandButton value="Adicionar" action="#{bean.adicionar}"
-					update="form tabela" />
+				<p:commandButton value="Adicionar" action="#{bean.adicionar}" update="form tabela" />
 				<p:outputLabel />
 			</h:panelGrid>
 		</p:panel>
@@ -41,9 +42,25 @@
 		<p:column headerText="E-mail">#{p.email}</p:column>
 		<p:column headerText="Id">#{p.id}</p:column>
 		<p:column headerText="Editar" width="80" >
-			<p:button value="Editar"
-				outcome="/paginas/sucesso.xhtml?parametro=#{p.id}" />
+			<p:button value="Editar" outcome="/paginas/sucesso.xhtml?nome=#{p.nome};email=#{p.email};id=#{p.id}" />
 		</p:column>
+		<p:column headerText="Editar" width="80" >
+			<p:button value="Editar" outcome="/paginas/sucesso.xhtml">
+				<f:param name="nome" value="#{p.nome}" />
+				<f:param name="email" value="#{p.email}" />
+				<f:param name="id" value="#{p.id}" />
+			</p:button>
+		</p:column>
+		
+		
+		<!-- 
+		
+		<p:column headerText="Editar2" width="80" >
+			<p:commandButton value="Editar2" action="#{bean.editarPessoa(p.id)}" />
+		</p:column>
+		
+		 -->
+		
 	</p:dataTable>
 
 </h:body>

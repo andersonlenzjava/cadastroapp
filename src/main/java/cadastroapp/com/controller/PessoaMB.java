@@ -33,13 +33,23 @@ public class PessoaMB implements Serializable {
 		limpar();
 		
 		// naavegação por método (não estava funcionando por causa do erro de digitação 
-		return "paginas/sucesso";
+		return "paginas/Sucesso";
 	}
 	
 	private void limpar() {
 		
 		pessoa = new Pessoa();
 		
+	}
+	
+	public String editarPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+		
+		return "paginas/Sucesso";
+	}
+	
+	public String editar() {
+		return "paginas/sucesso";
 	}
 
 	public Pessoa getPessoa() {

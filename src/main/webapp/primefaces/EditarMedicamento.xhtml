@@ -1,0 +1,95 @@
+<ui:composition template="/WEB-INF/template/MenuGenerico.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+
+		<f:metadata>
+			<f:viewParam name="nome" value="#{medicamentoMB.medicamento.nome}" />
+			<f:viewParam name="email" value="#{medicamentoMB.medicamento.apresentacao}" />
+			<f:viewParam name="url" value="#{medicamentoMB.medicamento.url}" />
+			<f:viewParam name="laboratorio" value="#{medicamentoMB.medicamento.laboratorio}" />
+			<f:viewParam name="registro" value="#{medicamentoMB.medicamento.registro}" />
+			<f:viewParam name="preco" value="#{medicamentoMB.medicamento.preco}" />
+			<f:viewParam name="id" value="#{medicamentoMB.medicamento.id}" />
+		</f:metadata>
+
+
+		<div class="card">
+			<p:dataTable value="#{medicamentoMB.medicamento}" var="m" border="1" id="tabela">
+				<p:column headerText="Nome">#{m.nome}</p:column>
+				<p:column headerText="E-mail">#{m.apresentacao}</p:column>
+				<p:column headerText="url">#{m.url}</p:column>
+				<p:column headerText="laboratorio">#{m.laboratorio}</p:column>
+				<p:column headerText="registro">#{m.registro}</p:column>
+				<p:column headerText="preco">#{m.preco}</p:column>
+				<p:column headerText="Editar" width="80" />
+				
+			</p:dataTable>
+		</div>
+		
+		
+		<div class="card">
+				<h:form id="frm">
+					<p:messages autoUpdate="true" />
+	
+					<!-- Exibição do formulário -->
+					<center>
+						<h:panelGrid columns="2">
+	
+							<p:outputLabel value="Medicamento" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento"/>
+	
+							<p:outputLabel value="Apresentação" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Apresentação" />
+							
+							<p:outputLabel value="Endereço imagem" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.url}" required="true" label="Medicamento" />
+	
+							<p:outputLabel value="Laboratório" />
+							<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
+								<f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true" />
+								<f:selectItem itemLabel="Bayer" itemValue="BAYER" />
+								<f:selectItem itemLabel="Pratidonaduzzi" itemValue="PRATIDONADUZZI" />
+								<f:selectItem itemLabel="legrand" itemValue="LEGRAND" />
+								<f:selectItem itemLabel="Cimed" itemValue="CIMED" />
+							</p:selectOneMenu>
+	
+							<p:outputLabel value="Registro MS" />
+							<p:inputMask mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamento.registro}" required="true" label="Registro" />
+	
+							<p:outputLabel value="Preço" />
+							<p:inputText size="4" value="#{medicamentoMB.medicamento.preco}" required="true" label="Preço">
+								<f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0" />
+							</p:inputText>
+	
+							<p:outputLabel />
+								<p:commandButton  value="Salvar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
+						</h:panelGrid>
+					</center>
+				</h:form>
+			</div>
+		
+		
+		
+		
+		<h:form id="form">
+
+			<p:messages autoUpdate="true" />
+	
+			<p:panel header="Cadastro de clientes">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Nome" />
+					<p:inputText value="#{medicamentoMB.medicamento.nome}" size="50">#{medicamentoMB.medicamento.nome}</p:inputText>
+					<p:commandButton value="Salvar" action="#{medicamentoMB.adicionar}" update="form tabela" />
+					<p:outputLabel />
+				</h:panelGrid>
+			</p:panel>
+			
+		</h:form>
+
+	</ui:define>
+</ui:composition>

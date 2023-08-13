@@ -21,13 +21,19 @@
 	</header>
 	
 	<f:metadata>
-		<f:viewParam name="parametro" value="#{bean.pessoa.nome}" /> 
+		<f:viewParam name="nome" value="#{bean.pessoa.nome}" /> 
+		<f:viewParam name="email" value="#{bean.pessoa.email}" /> 
+		<f:viewParam name="id" value="#{bean.pessoa.id}" /> 
 	</f:metadata>
+	 
 	
-	
-	<center>
-		<h1>#{bean.pessoa.nome}</h1>
-	<!--	<h1>#{medicamentoMB.medicamento.nome}</h1> -->
-	</center>
+	<p:dataTable value="#{bean.pessoa}" var="p" border="1" id="tabela">
+		<p:column headerText="Nome">#{p.nome}</p:column>
+		<p:column headerText="E-mail">#{p.email}</p:column>
+		<p:column headerText="Id">#{p.id}</p:column>
+		<p:column headerText="Editar" width="80" >
+			<p:button value="Editar" outcome="/paginas/sucesso.xhtml?parametro=#{p.id}" />
+		</p:column>
+	</p:dataTable>
 </h:body>
 </html>

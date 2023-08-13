@@ -74,22 +74,39 @@
 								<f:convertNumber type="currency" currencySymbol="R$" />
 							</p:outputLabel>
 						</p:column>
+				
+					<!-- Botão para edição em outra janela -->
 	
-						<p:column headerText="" width="100">
+						<p:column headerText="" width="30">
+							<p:button outcome="/primefaces/EditarMedicamento.xhtml" icon="pi pi-fw pi-pencil" styleClass="ui-button-secondary">
+								<f:param name="nome" value="#{m.nome}" />
+								<f:param name="email" value="#{m.apresentacao}" />
+								<f:param name="url" value="#{m.url}" />
+								<f:param name="laboratorio" value="#{m.laboratorio}" />
+								<f:param name="registro" value="#{m.registro}" />
+								<f:param name="preco" value="#{m.preco}" />
+								<f:param name="id" value="#{m.id}" />
+							</p:button>
+						</p:column>
+						
+						
+						<p:column headerText="" width="80">
+						<!--  
 							<p:commandButton icon="pi pi-fw pi-pencil" update="@form" process="@this" styleClass="ui-button-secondary" style="margin-right: 10px">
 								<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 							</p:commandButton>
-	
+						-->	
 							<p:commandButton action="#{medicamentoMB.excluir}" icon="pi pi-trash" update="tabela" process="@this">
 								<f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}" />
 								<!-- Botão de confirmação -->
 								<p:confirm icon="ui-icon-alert" header="Confirmação de exclusão" message="Tem certeza que quer excluir o medicamento?" />
 							</p:commandButton>
-							
 						</p:column>
+						
+						
 	
 					</p:dataTable>
-	
+					
 				</h:form>
 			</div>
 	</ui:define>

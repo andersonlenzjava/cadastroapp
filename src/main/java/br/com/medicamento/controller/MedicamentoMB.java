@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,7 +14,7 @@ import br.com.medicamento.utility.Message;
 import br.com.medicamento.utility.NegocioException;
 
 @Named
-@ApplicationScoped
+@SessionScoped
 public class MedicamentoMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -34,6 +34,7 @@ public class MedicamentoMB implements Serializable {
 
 	}
 
+	// adicionar/ salvar 
 	public void adicionar() {
 		try {
 			service.salvar(medicamento);
@@ -50,13 +51,14 @@ public class MedicamentoMB implements Serializable {
 		try {
 			service.remover(medicamento);
 			carregar();
-
+			medicamento = new Medicamento();
 			Message.info(medicamento.getNome() + " foi removido");
 
 		} catch (NegocioException e) {
 			Message.erro(e.getMessage());
 		}
 	}
+	
 
 	public Medicamento getMedicamento() {
 		return medicamento;
