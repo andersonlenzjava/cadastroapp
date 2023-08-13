@@ -42,7 +42,7 @@
 							</p:inputText>
 	
 							<p:outputLabel />
-								<p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
+							 <p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
 						</h:panelGrid>
 					</center>
 					
@@ -79,6 +79,7 @@
 	
 						<p:column headerText="" width="30">
 							<p:button outcome="/primefaces/EditarMedicamento.xhtml" icon="pi pi-fw pi-pencil" styleClass="ui-button-secondary">
+								
 								<f:param name="nome" value="#{m.nome}" />
 								<f:param name="email" value="#{m.apresentacao}" />
 								<f:param name="url" value="#{m.url}" />
@@ -86,6 +87,7 @@
 								<f:param name="registro" value="#{m.registro}" />
 								<f:param name="preco" value="#{m.preco}" />
 								<f:param name="id" value="#{m.id}" />
+								 
 							</p:button>
 						</p:column>
 						

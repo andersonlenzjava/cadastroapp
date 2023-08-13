@@ -33,63 +33,50 @@
 		
 		
 		<div class="card">
-				<h:form id="frm">
-					<p:messages autoUpdate="true" />
-	
-					<!-- Exibição do formulário -->
-					<center>
-						<h:panelGrid columns="2">
-	
-							<p:outputLabel value="Medicamento" />
-							<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento"/>
-	
-							<p:outputLabel value="Apresentação" />
-							<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Apresentação" />
-							
-							<p:outputLabel value="Endereço imagem" />
-							<p:inputText size="30" value="#{medicamentoMB.medicamento.url}" required="true" label="Medicamento" />
-	
-							<p:outputLabel value="Laboratório" />
-							<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
-								<f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true" />
-								<f:selectItem itemLabel="Bayer" itemValue="BAYER" />
-								<f:selectItem itemLabel="Pratidonaduzzi" itemValue="PRATIDONADUZZI" />
-								<f:selectItem itemLabel="legrand" itemValue="LEGRAND" />
-								<f:selectItem itemLabel="Cimed" itemValue="CIMED" />
-							</p:selectOneMenu>
-	
-							<p:outputLabel value="Registro MS" />
-							<p:inputMask mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamento.registro}" required="true" label="Registro" />
-	
-							<p:outputLabel value="Preço" />
-							<p:inputText size="4" value="#{medicamentoMB.medicamento.preco}" required="true" label="Preço">
-								<f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0" />
-							</p:inputText>
-	
-							<p:outputLabel />
-								<p:commandButton  value="Salvar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
-						</h:panelGrid>
-					</center>
-				</h:form>
-			</div>
-		
-		
-		
-		
-		<h:form id="form">
+			<h:form id="frm">
+				<p:messages autoUpdate="true" closable="true" />
 
-			<p:messages autoUpdate="true" />
-	
-			<p:panel header="Cadastro de clientes">
-				<h:panelGrid columns="2">
-					<p:outputLabel value="Nome" />
-					<p:inputText value="#{medicamentoMB.medicamento.nome}" size="50">#{medicamentoMB.medicamento.nome}</p:inputText>
-					<p:commandButton value="Salvar" action="#{medicamentoMB.adicionar}" update="form tabela" />
-					<p:outputLabel />
-				</h:panelGrid>
-			</p:panel>
-			
-		</h:form>
+				<!-- Exibição do formulário -->
+				<center>
+					<h:panelGrid columns="2">
 
+						<p:outputLabel value="Medicamento" />
+						<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento" />
+
+						<p:outputLabel value="Apresentação" />
+						<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Apresentação" />
+						
+						<p:outputLabel value="Endereço imagem" />
+						<p:inputText size="30" value="#{medicamentoMB.medicamento.url}" required="true" label="Medicamento" />
+
+						<p:outputLabel value="Laboratório" />
+						<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
+							<f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true" />
+							<f:selectItem itemLabel="Bayer" itemValue="BAYER" />
+							<f:selectItem itemLabel="Pratidonaduzzi" itemValue="PRATIDONADUZZI" />
+							<f:selectItem itemLabel="legrand" itemValue="LEGRAND" />
+							<f:selectItem itemLabel="Cimed" itemValue="CIMED" />
+						</p:selectOneMenu>
+
+						<p:outputLabel value="Registro MS" />
+						<p:inputMask mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamento.registro}" required="true" label="Registro" />
+
+						<p:outputLabel value="Preço" />
+						<p:inputText size="4" value="#{medicamentoMB.medicamento.preco}" required="true" label="Preço">
+							<f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0" />
+						</p:inputText>
+
+						<p:outputLabel />
+							<p:commandButton value="Salvar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm" style="margin-top: 10px">
+								<p:confirm icon="ui-icon-alert" header="Confirmação de edição" message="Tem certeza que quer editar o medicamento?" />
+							</p:commandButton>
+						<p:outputLabel />
+							<p:commandButton value="Voltar" action="/primefaces/Medicamento.xhtml?faces-redirect=true" icon="pi pi-save" style="margin-top: 10px"/>
+								
+					</h:panelGrid>
+				</center>
+			</h:form>
+		</div>
+		
 	</ui:define>
 </ui:composition>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+
+
+	<header>
+		<p:graphicImage library="imagens" 
+		name="sutherland-global-services-vector-logo.png" width="200px" />
+		<div style="float: right;" >
+			<h:graphicImage library="imagens" name="logo.png" width="80" />
+		</div>
+	</header>
+	
+	<f:metadata>
+		<f:viewParam name="nome" value="#{bean.pessoa.nome}" /> 
+		<f:viewParam name="email" value="#{bean.pessoa.email}" /> 
+		<f:viewParam name="id" value="#{bean.pessoa.id}" /> 
+	</f:metadata>
+	 
+	
+	<p:dataTable value="#{bean.pessoa}" var="p" border="1" id="tabela">
+		<p:column headerText="Nome">#{p.nome}</p:column>
+		<p:column headerText="E-mail">#{p.email}</p:column>
+		<p:column headerText="Id">#{p.id}</p:column>
+		<p:column headerText="Editar" width="80" >
+			<p:button value="Editar" outcome="/paginas/sucesso.xhtml?parametro=#{p.id}" />
+		</p:column>
+	</p:dataTable>
+	
+	<p:messages autoUpdate="true" />
+	
+					<!-- Exibição do formulário -->
+					<center>
+						<h:panelGrid columns="2">
+	
+							<p:outputLabel value="Medicamento" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento" />
+	
+							<p:outputLabel value="Apresentação" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Apresentação" />
+							
+							<p:outputLabel value="Endereço imagem" />
+							<p:inputText size="30" value="#{medicamentoMB.medicamento.url}" required="true" label="Medicamento" />
+	
+							<p:outputLabel value="Laboratório" />
+							<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
+								<f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true" />
+								<f:selectItem itemLabel="Bayer" itemValue="BAYER" />
+								<f:selectItem itemLabel="Pratidonaduzzi" itemValue="PRATIDONADUZZI" />
+								<f:selectItem itemLabel="legrand" itemValue="LEGRAND" />
+								<f:selectItem itemLabel="Cimed" itemValue="CIMED" />
+							</p:selectOneMenu>
+	
+							<p:outputLabel value="Registro MS" />
+							<p:inputMask mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamento.registro}" required="true" label="Registro" />
+	
+							<p:outputLabel value="Preço" />
+							<p:inputText size="4" value="#{medicamentoMB.medicamento.preco}" required="true" label="Preço">
+								<f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0" />
+							</p:inputText>
+							
+							 
+							<p:outputLabel />
+								<p:commandButton  value="Cadastrar" action="#{medicamentoMB.adicionar}" icon="pi pi-save" update="frm tabela" style="margin-top: 10px"/>
+								
+						</h:panelGrid>
+					</center>
+					
+	
+	
+</h:body>
+</html>

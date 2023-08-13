@@ -46,6 +46,7 @@ public class MedicamentoMB implements Serializable {
 			Message.erro(e.getMessage());
 		}
 	}
+	
 
 	public void excluir() {
 		try {
