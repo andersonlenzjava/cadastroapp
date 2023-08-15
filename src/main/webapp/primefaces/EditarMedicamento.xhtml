@@ -6,6 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="corpo">
+	
 
 		<f:metadata>
 			<f:viewParam name="nome" value="#{medicamentoMB.medicamento.nome}" />
@@ -31,6 +32,9 @@
 			</p:dataTable>
 		</div>
 		
+		<div>
+			<h:outputLink value = "http://localhost:8080/cadastroapp/primefaces/Medicamento.xhtml?faces-redirect=true" >voltar</h:outputLink> 
+		</div>
 		
 		<div class="card">
 			<h:form id="frm">
