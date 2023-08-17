@@ -17,24 +17,6 @@
 			<f:viewParam name="preco" value="#{medicamentoMB.medicamento.preco}" />
 			<f:viewParam name="id" value="#{medicamentoMB.medicamento.id}" />
 		</f:metadata>
-
-
-		<div class="card">
-			<p:dataTable value="#{medicamentoMB.medicamento}" var="m" border="1" id="tabela">
-				<p:column headerText="Nome">#{m.nome}</p:column>
-				<p:column headerText="E-mail">#{m.apresentacao}</p:column>
-				<p:column headerText="url">#{m.url}</p:column>
-				<p:column headerText="laboratorio">#{m.laboratorio}</p:column>
-				<p:column headerText="registro">#{m.registro}</p:column>
-				<p:column headerText="preco">#{m.preco}</p:column>
-				<p:column headerText="Editar" width="80" />
-				
-			</p:dataTable>
-		</div>
-		
-		<div>
-			<h:outputLink value = "http://localhost:8080/cadastroapp/primefaces/Medicamento.xhtml?faces-redirect=true" >voltar</h:outputLink> 
-		</div>
 		
 		<div class="card">
 			<h:form id="frm">
@@ -56,10 +38,10 @@
 						<p:outputLabel value="Laboratório" />
 						<p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
 							<f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true" />
-							<f:selectItem itemLabel="Bayer" itemValue="BAYER" />
-							<f:selectItem itemLabel="Pratidonaduzzi" itemValue="PRATIDONADUZZI" />
-							<f:selectItem itemLabel="legrand" itemValue="LEGRAND" />
-							<f:selectItem itemLabel="Cimed" itemValue="CIMED" />
+							<f:selectItem itemLabel="Fabricante 1" itemValue="FABRICANTE 1" />
+							<f:selectItem itemLabel="Fabricante 2" itemValue="FABRICANTE 2" />
+							<f:selectItem itemLabel="Fabricante 3" itemValue="FABRICANTE 3" />
+							<f:selectItem itemLabel="Fabricante 4" itemValue="FABRICANTE 4" />
 						</p:selectOneMenu>
 
 						<p:outputLabel value="Registro MS" />
@@ -75,8 +57,11 @@
 								<p:confirm icon="ui-icon-alert" header="Confirmação de edição" message="Tem certeza que quer editar o medicamento?" />
 							</p:commandButton>
 						<p:outputLabel />
-							<p:commandButton value="Voltar" action="/primefaces/Medicamento.xhtml?faces-redirect=true" icon="pi pi-save" style="margin-top: 10px"/>
-								
+							
+							<h:outputLink styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"   value="http://localhost:8080/cadastroapp/primefaces/Medicamento.xhtml?faces-redirect=true">
+		                        <h:outputText styleClass="ui-button-text" value="Voltar"/>
+		                    </h:outputLink>
+		
 					</h:panelGrid>
 				</center>
 			</h:form>

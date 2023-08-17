@@ -10,11 +10,11 @@ import javax.inject.Named;
 
 import br.com.medicamento.model.Medicamento;
 import br.com.medicamento.service.MedicamentoService;
-import br.com.medicamento.utility.Message;
+import br.com.medicamento.utility.Message;	
 import br.com.medicamento.utility.NegocioException;
 
 @Named
-@SessionScoped
+@SessionScoped	
 public class MedicamentoMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
